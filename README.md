@@ -42,6 +42,7 @@ El archivo rellena los datos del caso; no genera una conversación con IA. Para 
 
 - Cinco escenarios iniciales basados en los materiales proporcionados.
 - Logo de la empresa seleccionada, con acentos morados y naranjas para FedEx y azules y verdes para TXU Energy. Los archivos se incluyen en `public/brands/`.
+- Diseño adaptable: panel de hasta 1600 px, datos y notas en dos columnas desde 1100 px y una sola columna en tabletas y móviles. Texto escalable y controles de al menos 44 px.
 - Answer conecta la llamada simulada, Hold pausa el temporizador y End termina la práctica y guarda las notas.
 - Retry prepara el mismo caso otra vez.
 - Las notas se guardan por escenario. Al cambiar de escenario también se guardan automáticamente.
