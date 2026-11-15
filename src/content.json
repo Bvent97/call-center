@@ -1,0 +1,1573 @@
+{
+  "scenarios": [
+    {
+      "id": "missing",
+      "brand": "FedEx",
+      "title": "Delivered but missing",
+      "name": "Emily Carter",
+      "reference": "7946 2081 3357",
+      "address": "4827 Willow Creek Drive, Apt 2B, Columbus, OH 43215",
+      "status": "Delivered · Package missing",
+      "record": "Tracking: Delivered Tuesday 2:14 p.m.; note: front entrance; photo: brown package by blue planter; simulated report MP-10482.",
+      "stages": [
+        {
+          "number": 1,
+          "title": "OPEN THE CALL",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "[Call connects.]"
+                }
+              ],
+              "options": [
+                "Thank you for calling FedEx. My name is Alex. How may I help you today?",
+                "Good morning, thank you for calling FedEx. This is Alex. How can I assist you?",
+                "You’ve reached FedEx. My name is Alex. What can I help you with today?"
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "My tracking says delivered, but there is no package here."
+                }
+              ],
+              "options": []
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "RECORDING NOTICE + PRACTICE VERIFICATION",
+          "turns": [
+            {
+              "messages": [],
+              "options": [
+                "For this training call, please be aware that the call may be recorded for quality and training purposes. May I have your name and reference number?",
+                "Before we continue, this practice call may be recorded for quality purposes. Let’s verify your information.",
+                "To protect your information, I’ll complete a quick practice verification. This training call may be recorded for quality and training."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "My name is Emily Carter. My reference number is 7946 2081 3357."
+                }
+              ],
+              "options": [
+                "Thank you. Could you confirm the address associated with this record?",
+                "I appreciate that. Please confirm the service or delivery address on the account.",
+                "Thank you. Let’s verify the address before discussing protected details."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "4827 Willow Creek Drive, Apt 2B, Columbus, OH 43215"
+                },
+                {
+                  "role": "system",
+                  "text": "Verification successful (simulated; not a real company authentication procedure)."
+                }
+              ],
+              "options": []
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "ACKNOWLEDGE THE CONCERN",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "My tracking says delivered, but there is no package here."
+                }
+              ],
+              "options": [
+                "I understand your concern, and I’ll be happy to review this with you.",
+                "I’m sorry for the inconvenience. Let’s take a closer look together.",
+                "I understand why this matters to you. I’ll check what we can confirm and explain the next steps."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "CLARIFY — ASK THE RIGHT QUESTIONS",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "I cannot find the package."
+                }
+              ],
+              "options": [
+                "Have you checked your front entrance and lobby?",
+                "Could someone at reception or another entrance have received it?",
+                "Have you checked the front door, reception area, and other usual delivery locations?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "INVESTIGATE — READ THE RECORD",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "system",
+                  "text": "Tracking: Delivered Tuesday 2:14 p.m.; note: front entrance; photo: brown package by blue planter; simulated report MP-10482."
+                }
+              ],
+              "options": [
+                "The tracking record shows delivered at 2:14 p.m., with a front-entrance note.",
+                "I can see a proof-of-delivery photo showing a blue planter. Does that match your entrance?",
+                "Let’s compare the delivery note, photo, and locations you already checked."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "I already looked at my front door."
+                }
+              ],
+              "options": [
+                "Thank you for checking. Have you also checked the lobby or reception area?",
+                "I appreciate you checking. Is there another entrance or a building manager who might have received it?",
+                "That helps. The delivery note says front entrance. Let’s compare it with the proof-of-delivery photo, if available."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "The picture shows a blue planter, but I don’t have one."
+                }
+              ],
+              "options": [
+                "Thank you. That detail is important.",
+                "I understand. The photo may not match your entrance, so we should document that difference.",
+                "That’s helpful information. I’ll note that the photo shows a blue planter and that it does not match your location."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "Are you saying the driver delivered it to the wrong place?"
+                }
+              ],
+              "options": [
+                "I can’t confirm that yet, but I can document the concern.",
+                "The photo raises a question, but we need to investigate before confirming what happened.",
+                "I understand why you’re asking. I don’t want to make an assumption; the next step is to submit a missing-package report for review."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "EXPLAIN WHAT IS CONFIRMED + NEXT STEP",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "I need this package for work tomorrow."
+                }
+              ],
+              "options": [
+                "I understand that this is urgent.",
+                "I’m sorry this is affecting your plans. I’ll explain the next step and what information is available.",
+                "I can hear how time-sensitive this is. I’ll record the urgency, but I don’t want to promise a delivery or resolution time I cannot verify."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "What happens now?"
+                }
+              ],
+              "options": [
+                "I’ll submit the report and give you the reference number.",
+                "I’ll document the tracking details and the photo discrepancy, then provide the case reference.",
+                "I’ll submit a fictional training investigation request with the delivery details, the locations you checked, and the photo discrepancy. Your practice reference is MP-10482."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "system",
+                  "text": "Simulated missing-package report MP-10482: tracking, locations checked, photo discrepancy, urgency. Submitted for review."
+                }
+              ],
+              "options": [
+                "I’ll document the details and provide the practice report reference MP-10482.",
+                "The next step is to submit the missing-package concern for review. I cannot confirm where it is yet.",
+                "I’ve recorded the photo discrepancy and urgency in our fictional report. I cannot guarantee a recovery date."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "RECAP, CONFIRM, AND CLOSE",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "Okay, thank you. What did we confirm today?"
+                }
+              ],
+              "options": [
+                "To recap, We reviewed the delivered status, the photo discrepancy, and the simulated missing-package report. Is there anything else I can clarify?",
+                "We reviewed the delivered status, the photo discrepancy, and the simulated missing-package report. Do you have any other questions before we finish?",
+                "Today, We reviewed the delivered status, the photo discrepancy, and the simulated missing-package report. Thank you for allowing me to review this with you. Is there anything else I can help with?"
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "No, that is all. Thank you."
+                }
+              ],
+              "options": [
+                "Thank you for calling FedEx. Have a great day.",
+                "You’re welcome. Thank you for contacting FedEx.",
+                "I appreciate your time. Thank you for calling FedEx, and take care."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shipping",
+      "brand": "FedEx",
+      "title": "Shipping costs & first shipment",
+      "name": "Brian Thompson",
+      "reference": "EST-24018",
+      "address": "Austin, TX 78701 → Seattle, WA 98101",
+      "status": "Shipping estimate",
+      "record": "4 lb; 12 x 9 x 6 in. Fictional practice estimates: Ground $18.40; faster option $43.20.",
+      "stages": [
+        {
+          "number": 1,
+          "title": "OPEN THE CALL",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "[Call connects.]"
+                }
+              ],
+              "options": [
+                "Thank you for calling FedEx. My name is Alex. How may I help you today?",
+                "Good morning, thank you for calling FedEx. This is Alex. How can I assist you?",
+                "You’ve reached FedEx. My name is Alex. What can I help you with today?"
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "I’ve never shipped a package before. Where do I start?"
+                }
+              ],
+              "options": []
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "RECORDING NOTICE + PRACTICE VERIFICATION",
+          "turns": [
+            {
+              "messages": [],
+              "options": [
+                "For this training call, please be aware that the call may be recorded for quality and training purposes. May I have your name and reference number?",
+                "Before we continue, this practice call may be recorded for quality purposes. Let’s verify your information.",
+                "To protect your information, I’ll complete a quick practice verification. This training call may be recorded for quality and training."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "My name is Brian Thompson. My reference number is EST-24018."
+                }
+              ],
+              "options": [
+                "Thank you. Could you confirm the address associated with this record?",
+                "I appreciate that. Please confirm the service or delivery address on the account.",
+                "Thank you. Let’s verify the address before discussing protected details."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "Austin, TX 78701 to Seattle, WA 98101"
+                },
+                {
+                  "role": "system",
+                  "text": "Verification successful (simulated; not a real company authentication procedure)."
+                }
+              ],
+              "options": []
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "ACKNOWLEDGE THE CONCERN",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "I’ve never shipped a package before. Where do I start?"
+                }
+              ],
+              "options": [
+                "I understand your concern, and I’ll be happy to review this with you.",
+                "I’m sorry for the inconvenience. Let’s take a closer look together.",
+                "I understand why this matters to you. I’ll check what we can confirm and explain the next steps."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "CLARIFY — ASK THE RIGHT QUESTIONS",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "I need to send a package to Seattle."
+                }
+              ],
+              "options": [
+                "What are the origin and destination ZIP codes?",
+                "How much does the box weigh, and what are its dimensions?",
+                "When do you need it to arrive, and do you prefer a lower cost or faster service?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "INVESTIGATE — READ THE RECORD",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "system",
+                  "text": "4 lb; 12 x 9 x 6 in. Fictional practice estimates: Ground $18.40; faster option $43.20."
+                }
+              ],
+              "options": [
+                "I have the origin and destination ZIP codes. Let’s check the package details.",
+                "The practice quote shows $18.40 for ground and $43.20 for a faster option.",
+                "The final price may depend on the service, dimensions, weight, and any applicable adjustments."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "How much will it cost to send to Seattle?"
+                }
+              ],
+              "options": [
+                "Let me check the details for an estimate.",
+                "The cost depends on the ZIP codes, weight, dimensions, and service selected.",
+                "I can provide a training estimate once we confirm the shipment details; the final amount may change based on the actual shipment."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "Why is the faster option so expensive?"
+                }
+              ],
+              "options": [
+                "Faster services may cost more.",
+                "The service speed is one factor that affects the price.",
+                "I understand the difference is significant. The faster service is priced differently because of the delivery speed; let’s compare it with the ground option."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "EXPLAIN WHAT IS CONFIRMED + NEXT STEP",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "Do I need to print a label?"
+                }
+              ],
+              "options": [
+                "A shipping label is required. Let’s review your options.",
+                "We can review how labels are created and what drop-off options may be available.",
+                "The shipment needs a label. I can explain the general label-creation steps and help you identify the available options."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "Can you promise it will arrive Friday?"
+                }
+              ],
+              "options": [
+                "I can check the available estimated delivery information.",
+                "I don’t want to guarantee a date that has not been confirmed.",
+                "I understand your deadline. We should review the service estimate and any applicable limitations before making a decision."
+              ]
+            },
+            {
+              "messages": [],
+              "options": [
+                "We can review the label steps and eligible drop-off or pickup options.",
+                "The practice ground estimate is lower, but actual rates must be confirmed before purchase.",
+                "Let’s confirm the details and compare services before choosing a shipping option."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "RECAP, CONFIRM, AND CLOSE",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "Okay, thank you. What did we confirm today?"
+                }
+              ],
+              "options": [
+                "To recap, We reviewed the package details, practice estimates, and the next steps to create a shipping label. Is there anything else I can clarify?",
+                "We reviewed the package details, practice estimates, and the next steps to create a shipping label. Do you have any other questions before we finish?",
+                "Today, We reviewed the package details, practice estimates, and the next steps to create a shipping label. Thank you for allowing me to review this with you. Is there anything else I can help with?"
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "No, that is all. Thank you."
+                }
+              ],
+              "options": [
+                "Thank you for calling FedEx. Have a great day.",
+                "You’re welcome. Thank you for contacting FedEx.",
+                "I appreciate your time. Thank you for calling FedEx, and take care."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bill",
+      "brand": "TXU Energy",
+      "title": "Unexpectedly high bill",
+      "name": "Jennifer Williams",
+      "reference": "TX-604291",
+      "address": "7308 Maple Street, Dallas, TX 75214",
+      "status": "Amount due · $221.00",
+      "record": "Bill $221 vs $168 prior month; usage 1,240 vs 910 kWh; energy $149.80; delivery $54.20; base $9.95; fees $7.05.",
+      "stages": [
+        {
+          "number": 1,
+          "title": "OPEN THE CALL",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "[Call connects.]"
+                }
+              ],
+              "options": [
+                "Thank you for calling TXU Energy. My name is Alex. How may I help you today?",
+                "Good morning, thank you for calling TXU Energy. This is Alex. How can I assist you?",
+                "You’ve reached TXU Energy. My name is Alex. What can I help you with today?"
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "My bill is $221. Last month it was only $168."
+                }
+              ],
+              "options": []
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "RECORDING NOTICE + PRACTICE VERIFICATION",
+          "turns": [
+            {
+              "messages": [],
+              "options": [
+                "For this training call, please be aware that the call may be recorded for quality and training purposes. May I have your name and reference number?",
+                "Before we continue, this practice call may be recorded for quality purposes. Let’s verify your information.",
+                "To protect your information, I’ll complete a quick practice verification. This training call may be recorded for quality and training."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "My name is Jennifer Williams. My reference number is TX-604291."
+                }
+              ],
+              "options": [
+                "Thank you. Could you confirm the address associated with this record?",
+                "I appreciate that. Please confirm the service or delivery address on the account.",
+                "Thank you. Let’s verify the address before discussing protected details."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "7308 Maple Street, Dallas, TX 75214"
+                },
+                {
+                  "role": "system",
+                  "text": "Verification successful (simulated; not a real company authentication procedure)."
+                }
+              ],
+              "options": []
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "ACKNOWLEDGE THE CONCERN",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "My bill is $221. Last month it was only $168."
+                }
+              ],
+              "options": [
+                "I understand your concern, and I’ll be happy to review this with you.",
+                "I’m sorry for the inconvenience. Let’s take a closer look together.",
+                "I understand why this matters to you. I’ll check what we can confirm and explain the next steps."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "CLARIFY — ASK THE RIGHT QUESTIONS",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "My bill is higher than usual."
+                }
+              ],
+              "options": [
+                "Which billing period are we reviewing?",
+                "Would you like to compare this month’s usage with last month’s?",
+                "Are you asking about the total, a particular charge, or a payment?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "INVESTIGATE — READ THE RECORD",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "system",
+                  "text": "Bill $221 vs $168 prior month; usage 1,240 vs 910 kWh; energy $149.80; delivery $54.20; base $9.95; fees $7.05."
+                }
+              ],
+              "options": [
+                "Your usage increased from 910 to 1,240 kilowatt-hours.",
+                "This statement lists energy, delivery, base, and tax or fee charges separately.",
+                "I see $149.80 for energy, $54.20 for delivery, $9.95 base, and $7.05 in taxes and fees."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "What are delivery charges?"
+                }
+              ],
+              "options": [
+                "They are separate from energy charges on this practice bill.",
+                "Delivery charges relate to moving electricity through the delivery system.",
+                "On this fictional statement, energy charges and delivery charges appear separately. Let me explain each line without assuming the exact tariff rules."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "Did you charge me twice?"
+                }
+              ],
+              "options": [
+                "Let’s review the balance and payments first.",
+                "I understand your concern. The statement shows no previous balance, but let’s check the billing lines.",
+                "That is an important question. I’ll review the prior balance, payment history, and current charges so we can identify whether anything appears duplicated."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "EXPLAIN WHAT IS CONFIRMED + NEXT STEP",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "Can you remove the fee?"
+                }
+              ],
+              "options": [
+                "I can review the charge, but I can’t promise a removal.",
+                "I can explain the charge and the available review process.",
+                "I understand you’d like it removed. First, I need to confirm what the charge represents and whether any adjustment is permitted."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "I can’t pay the full amount by Friday."
+                }
+              ],
+              "options": [
+                "I understand. Let’s review available options.",
+                "I’m sorry you’re dealing with that. I can explain what options are shown in our training system.",
+                "Thank you for telling me. I’ll review the payment options displayed in the simulated account, without promising an arrangement that has not been approved."
+              ]
+            },
+            {
+              "messages": [],
+              "options": [
+                "I can explain each charge and check which review options are available.",
+                "The usage increase is one factor, but we should compare every line before drawing a conclusion.",
+                "I can review possible payment options shown in the training system, but I cannot promise an adjustment."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "RECAP, CONFIRM, AND CLOSE",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "Okay, thank you. What did we confirm today?"
+                }
+              ],
+              "options": [
+                "To recap, We compared the bill, usage, and charges, and discussed the available review steps. Is there anything else I can clarify?",
+                "We compared the bill, usage, and charges, and discussed the available review steps. Do you have any other questions before we finish?",
+                "Today, We compared the bill, usage, and charges, and discussed the available review steps. Thank you for allowing me to review this with you. Is there anything else I can help with?"
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "No, that is all. Thank you."
+                }
+              ],
+              "options": [
+                "Thank you for calling TXU Energy. Have a great day.",
+                "You’re welcome. Thank you for contacting TXU Energy.",
+                "I appreciate your time. Thank you for calling TXU Energy, and take care."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "payment",
+      "brand": "TXU Energy",
+      "title": "Payment pending",
+      "name": "Robert Anderson",
+      "reference": "TX-608155",
+      "address": "916 Pine Ridge Lane, Houston, TX 77002",
+      "status": "Pending · $184.60",
+      "record": "Statement $184.60; customer reports payment November 10; training system shows pending, not posted.",
+      "stages": [
+        {
+          "number": 1,
+          "title": "OPEN THE CALL",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "[Call connects.]"
+                }
+              ],
+              "options": [
+                "Thank you for calling TXU Energy. My name is Alex. How may I help you today?",
+                "Good morning, thank you for calling TXU Energy. This is Alex. How can I assist you?",
+                "You’ve reached TXU Energy. My name is Alex. What can I help you with today?"
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "I paid already, but your system says I owe money."
+                }
+              ],
+              "options": []
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "RECORDING NOTICE + PRACTICE VERIFICATION",
+          "turns": [
+            {
+              "messages": [],
+              "options": [
+                "For this training call, please be aware that the call may be recorded for quality and training purposes. May I have your name and reference number?",
+                "Before we continue, this practice call may be recorded for quality purposes. Let’s verify your information.",
+                "To protect your information, I’ll complete a quick practice verification. This training call may be recorded for quality and training."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "My name is Robert Anderson. My reference number is TX-608155."
+                }
+              ],
+              "options": [
+                "Thank you. Could you confirm the address associated with this record?",
+                "I appreciate that. Please confirm the service or delivery address on the account.",
+                "Thank you. Let’s verify the address before discussing protected details."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "916 Pine Ridge Lane, Houston, TX 77002"
+                },
+                {
+                  "role": "system",
+                  "text": "Verification successful (simulated; not a real company authentication procedure)."
+                }
+              ],
+              "options": []
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "ACKNOWLEDGE THE CONCERN",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "I paid already, but your system says I owe money."
+                }
+              ],
+              "options": [
+                "I understand your concern, and I’ll be happy to review this with you.",
+                "I’m sorry for the inconvenience. Let’s take a closer look together.",
+                "I understand why this matters to you. I’ll check what we can confirm and explain the next steps."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "CLARIFY — ASK THE RIGHT QUESTIONS",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "I already made a payment."
+                }
+              ],
+              "options": [
+                "What date did you make the payment?",
+                "Can you confirm the amount you paid?",
+                "Do you have a payment confirmation or reference number?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "INVESTIGATE — READ THE RECORD",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "system",
+                  "text": "Statement $184.60; customer reports payment November 10; training system shows pending, not posted."
+                }
+              ],
+              "options": [
+                "The payment is showing as pending in this practice record.",
+                "I can see the payment information, but it has not posted yet.",
+                "The training screen does not confirm a duplicate charge or a posting date."
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "Are you going to charge me again?"
+                }
+              ],
+              "options": [
+                "I can’t confirm that from this screen.",
+                "The payment is marked pending, so I don’t want to tell you it has posted yet.",
+                "The training screen shows a pending payment, not a completed posting. I’ll explain what we can confirm and what still needs review."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "EXPLAIN WHAT IS CONFIRMED + NEXT STEP",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "What should I do now?"
+                }
+              ],
+              "options": [
+                "Let’s review the available next step.",
+                "I’ll document your concern and explain the account’s current status.",
+                "I’ll summarize what we confirmed, document the pending payment, and identify the next step shown in the training process."
+              ]
+            },
+            {
+              "messages": [],
+              "options": [
+                "I’ll document that the payment is pending and explain the next review step.",
+                "We should not assume a second payment is required until the status is checked.",
+                "I can confirm the payment is pending, but I cannot promise exactly when it will post."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "RECAP, CONFIRM, AND CLOSE",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "Okay, thank you. What did we confirm today?"
+                }
+              ],
+              "options": [
+                "To recap, We confirmed that the payment is pending, not yet posted, and discussed the next review step. Is there anything else I can clarify?",
+                "We confirmed that the payment is pending, not yet posted, and discussed the next review step. Do you have any other questions before we finish?",
+                "Today, We confirmed that the payment is pending, not yet posted, and discussed the next review step. Thank you for allowing me to review this with you. Is there anything else I can help with?"
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "No, that is all. Thank you."
+                }
+              ],
+              "options": [
+                "Thank you for calling TXU Energy. Have a great day.",
+                "You’re welcome. Thank you for contacting TXU Energy.",
+                "I appreciate your time. Thank you for calling TXU Energy, and take care."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "delay",
+      "brand": "FedEx",
+      "title": "Delayed shipment",
+      "name": "Michael Reynolds",
+      "reference": "7812 4065 9923",
+      "address": "Denver, CO 80203",
+      "status": "In transit · Delivery delayed",
+      "record": "In transit; due yesterday; last scan 6:40 a.m. at regional facility; no new delivery date confirmed.",
+      "stages": [
+        {
+          "number": 1,
+          "title": "Open",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "[Call connects.]"
+                }
+              ],
+              "options": [
+                "Thank you for calling FedEx. This is Alex. How may I help?",
+                "Thank you for calling FedEx. How can I assist?",
+                "FedEx support, Alex speaking. How may I help today?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Recording notice & verify",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "My name is Michael Reynolds. Tracking number 7812 4065 9923."
+                }
+              ],
+              "options": [
+                "This training call may be recorded. Let’s complete the practice verification.",
+                "For quality purposes, this practice call may be recorded. Please confirm the destination ZIP.",
+                "Before reviewing protected details, we need to verify the practice record."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Acknowledge",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "My package was supposed to arrive yesterday."
+                }
+              ],
+              "options": [
+                "I understand. May I have the tracking number?",
+                "I’m sorry it hasn’t arrived as expected. Let me check the tracking details.",
+                "I understand this is urgent. I’ll review the latest shipment status with you."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "Clarify",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "When should I expect it?"
+                }
+              ],
+              "options": [
+                "What was the original estimated delivery date?",
+                "Has the tracking shown any new updates?",
+                "Let’s check the last scan and whether a new date has been confirmed."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "Investigate",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "What happened to it?"
+                }
+              ],
+              "options": [
+                "The last update shows it at a regional facility.",
+                "The tracking record shows it is still in transit, but it does not explain the delay.",
+                "I can confirm the last scan, but I cannot confirm the reason for the delay from this information."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "Explain next step",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "Can you promise it will arrive tomorrow?"
+                }
+              ],
+              "options": [
+                "I’m unable to guarantee that date.",
+                "I don’t want to give you an unconfirmed delivery date.",
+                "The system has not confirmed a new date. Let’s review the available next steps."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "Recap & close",
+          "turns": [
+            {
+              "messages": [
+                {
+                  "role": "customer",
+                  "text": "Okay, thank you."
+                }
+              ],
+              "options": [
+                "To recap, the shipment is still in transit, and there is no confirmed new delivery date.",
+                "We checked the last scan, and we cannot confirm tomorrow’s delivery. Is there anything else I can clarify?",
+                "Thank you for your patience. We reviewed the tracking information and the available next steps."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "en": "Tell me about yourself.",
+      "es": "Háblame de ti."
+    },
+    {
+      "id": 2,
+      "en": "Why do you want to work in a call center?",
+      "es": "¿Por qué quieres trabajar en un centro de atención telefónica?"
+    },
+    {
+      "id": 3,
+      "en": "Why are you interested in working at TELUS Digital?",
+      "es": "¿Por qué te interesa trabajar en TELUS Digital?"
+    },
+    {
+      "id": 4,
+      "en": "What are your greatest strengths?",
+      "es": "¿Cuáles son tus principales fortalezas?"
+    },
+    {
+      "id": 5,
+      "en": "What is one skill you are currently working to improve?",
+      "es": "¿Qué habilidad estás trabajando para mejorar actualmente?"
+    },
+    {
+      "id": 6,
+      "en": "What motivates you to do your best at work?",
+      "es": "¿Qué te motiva a dar lo mejor de ti en el trabajo?"
+    },
+    {
+      "id": 7,
+      "en": "What does good customer service mean to you?",
+      "es": "¿Qué significa para ti brindar un buen servicio al cliente?"
+    },
+    {
+      "id": 8,
+      "en": "How would you help a customer who is upset or frustrated?",
+      "es": "¿Cómo ayudarías a un cliente molesto o frustrado?"
+    },
+    {
+      "id": 9,
+      "en": "What would you say if you did not understand what a customer said?",
+      "es": "¿Qué dirías si no entendieras lo que dijo un cliente?"
+    },
+    {
+      "id": 10,
+      "en": "How would you explain something complicated to a customer?",
+      "es": "¿Cómo le explicarías algo complicado a un cliente?"
+    },
+    {
+      "id": 11,
+      "en": "What would you do if a customer interrupted you several times?",
+      "es": "¿Qué harías si un cliente te interrumpiera varias veces?"
+    },
+    {
+      "id": 12,
+      "en": "How would you respond if you did not know the answer to a customer’s question?",
+      "es": "¿Cómo responderías si no supieras la respuesta a la pregunta de un cliente?"
+    },
+    {
+      "id": 13,
+      "en": "Tell me about a time you solved a problem. What did you do?",
+      "es": "Cuéntame de una ocasión en la que resolviste un problema. ¿Qué hiciste?"
+    },
+    {
+      "id": 14,
+      "en": "Tell me about a time you made a mistake. How did you handle it?",
+      "es": "Cuéntame de una ocasión en la que cometiste un error. ¿Cómo lo manejaste?"
+    },
+    {
+      "id": 15,
+      "en": "How do you stay calm when you are under pressure?",
+      "es": "¿Cómo mantienes la calma cuando estás bajo presión?"
+    },
+    {
+      "id": 16,
+      "en": "How do you manage your time when you have several tasks?",
+      "es": "¿Cómo organizas tu tiempo cuando tienes varias tareas?"
+    },
+    {
+      "id": 17,
+      "en": "Do you prefer working alone or as part of a team? Why?",
+      "es": "¿Prefieres trabajar solo o en equipo? ¿Por qué?"
+    },
+    {
+      "id": 18,
+      "en": "How do you respond when someone gives you feedback?",
+      "es": "¿Cómo reaccionas cuando alguien te da retroalimentación?"
+    },
+    {
+      "id": 19,
+      "en": "A customer says, “My package was supposed to arrive yesterday.” What would you say first?",
+      "es": "Un cliente dice: «Mi paquete debía llegar ayer». ¿Qué dirías primero?"
+    },
+    {
+      "id": 20,
+      "en": "A customer says, “My tracking says delivered, but I cannot find my package.” How would you help?",
+      "es": "Un cliente dice: «El rastreo indica entregado, pero no encuentro mi paquete». ¿Cómo ayudarías?"
+    },
+    {
+      "id": 21,
+      "en": "A customer asks, “How much will it cost to ship this box?” What information would you need?",
+      "es": "Un cliente pregunta: «¿Cuánto costará enviar esta caja?». ¿Qué información necesitarías?"
+    },
+    {
+      "id": 22,
+      "en": "A customer says, “My electricity bill is much higher than last month.” How would you respond?",
+      "es": "Un cliente dice: «Mi factura de electricidad es mucho más alta que la del mes pasado». ¿Cómo responderías?"
+    },
+    {
+      "id": 23,
+      "en": "A customer says, “I already paid my bill, but it still shows a balance.” What would you do?",
+      "es": "Un cliente dice: «Ya pagué mi factura, pero todavía aparece un saldo». ¿Qué harías?"
+    },
+    {
+      "id": 24,
+      "en": "What would you do if a customer asked you to skip the account verification process?",
+      "es": "¿Qué harías si un cliente te pidiera omitir el proceso de verificación de la cuenta?"
+    },
+    {
+      "id": 25,
+      "en": "How have you been preparing to work in an English-speaking environment?",
+      "es": "¿Cómo te has preparado para trabajar en un ambiente donde se habla inglés?"
+    },
+    {
+      "id": 26,
+      "en": "What would you do if you received a difficult call on your first day?",
+      "es": "¿Qué harías si recibieras una llamada difícil en tu primer día?"
+    },
+    {
+      "id": 27,
+      "en": "Where would you like to be professionally one year from now?",
+      "es": "¿Dónde te gustaría estar profesionalmente dentro de un año?"
+    },
+    {
+      "id": 28,
+      "en": "Why should we hire you?",
+      "es": "¿Por qué deberíamos contratarte?"
+    }
+  ],
+  "vocab": [
+    {
+      "brand": "FedEx",
+      "term": "Shipment",
+      "es": "Envío",
+      "example": "Let me check the status of your shipment."
+    },
+    {
+      "brand": "FedEx",
+      "term": "Package / Parcel",
+      "es": "Paquete",
+      "example": "Could you describe the package?"
+    },
+    {
+      "brand": "FedEx",
+      "term": "Tracking number",
+      "es": "Número de rastreo",
+      "example": "May I have your tracking number, please?"
+    },
+    {
+      "brand": "FedEx",
+      "term": "Shipping label",
+      "es": "Etiqueta de envío",
+      "example": "You will need to print your shipping label."
+    },
+    {
+      "brand": "FedEx",
+      "term": "Sender / Shipper",
+      "es": "Remitente",
+      "example": "Can you confirm the sender’s information?"
+    },
+    {
+      "brand": "FedEx",
+      "term": "Recipient",
+      "es": "Destinatario",
+      "example": "Who is the recipient of the package?"
+    },
+    {
+      "brand": "FedEx",
+      "term": "Delivery address",
+      "es": "Dirección de entrega",
+      "example": "Let’s verify the delivery address."
+    },
+    {
+      "brand": "FedEx",
+      "term": "ZIP code",
+      "es": "Código postal de EE. UU.",
+      "example": "What is the ZIP code for the destination?"
+    },
+    {
+      "brand": "FedEx",
+      "term": "Weight",
+      "es": "Peso",
+      "example": "How much does your package weigh?"
+    },
+    {
+      "brand": "FedEx",
+      "term": "Dimensions",
+      "es": "Largo, ancho y alto",
+      "example": "What are the dimensions of the box?"
+    },
+    {
+      "brand": "FedEx",
+      "term": "Shipping rate",
+      "es": "Tarifa de envío",
+      "example": "Let’s compare the available shipping rates."
+    },
+    {
+      "brand": "FedEx",
+      "term": "Shipping estimate / Quote",
+      "es": "Cotización estimada",
+      "example": "The estimate depends on the size and destination."
+    },
+    {
+      "brand": "FedEx",
+      "term": "Delivery fee",
+      "es": "Cargo por entrega",
+      "example": "The delivery fee is included in this estimate."
+    },
+    {
+      "brand": "FedEx",
+      "term": "Pickup",
+      "es": "Recolección",
+      "example": "Would you like to check the pickup options?"
+    },
+    {
+      "brand": "FedEx",
+      "term": "Drop-off location",
+      "es": "Lugar de entrega del paquete",
+      "example": "You can take it to an eligible drop-off location."
+    },
+    {
+      "brand": "FedEx",
+      "term": "In transit",
+      "es": "En camino",
+      "example": "Your package is currently in transit."
+    },
+    {
+      "brand": "FedEx",
+      "term": "Out for delivery",
+      "es": "En reparto",
+      "example": "Your package is out for delivery today."
+    },
+    {
+      "brand": "FedEx",
+      "term": "Delivered",
+      "es": "Entregado",
+      "example": "The tracking system shows it was delivered."
+    },
+    {
+      "brand": "FedEx",
+      "term": "Estimated delivery date",
+      "es": "Fecha estimada de entrega",
+      "example": "The estimated delivery date was November 12."
+    },
+    {
+      "brand": "FedEx",
+      "term": "Delayed shipment",
+      "es": "Envío retrasado",
+      "example": "I’m sorry your shipment has been delayed."
+    },
+    {
+      "brand": "FedEx",
+      "term": "Last scan",
+      "es": "Último registro de escaneo",
+      "example": "The last scan shows a regional facility."
+    },
+    {
+      "brand": "FedEx",
+      "term": "Regional facility",
+      "es": "Centro regional de distribución",
+      "example": "The package was scanned at a regional facility."
+    },
+    {
+      "brand": "FedEx",
+      "term": "Proof of delivery",
+      "es": "Comprobante de entrega",
+      "example": "Let’s review the proof of delivery, if available."
+    },
+    {
+      "brand": "FedEx",
+      "term": "Delivery photo",
+      "es": "Fotografía de entrega",
+      "example": "Does the photo match your front entrance?"
+    },
+    {
+      "brand": "FedEx",
+      "term": "Front entrance",
+      "es": "Entrada principal",
+      "example": "Have you checked the front entrance?"
+    },
+    {
+      "brand": "FedEx",
+      "term": "Lobby / Reception",
+      "es": "Vestíbulo / recepción",
+      "example": "Could you check with reception?"
+    },
+    {
+      "brand": "FedEx",
+      "term": "Missing package",
+      "es": "Paquete no localizado",
+      "example": "I’ll help you report the missing package."
+    },
+    {
+      "brand": "FedEx",
+      "term": "Address correction",
+      "es": "Corrección de dirección",
+      "example": "Let’s check if a correction is available."
+    },
+    {
+      "brand": "FedEx",
+      "term": "Investigation request",
+      "es": "Solicitud de investigación",
+      "example": "I’ll document the details for a request."
+    },
+    {
+      "brand": "FedEx",
+      "term": "Case reference number",
+      "es": "Número de referencia del caso",
+      "example": "Please keep your case reference number."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Electricity bill",
+      "es": "Factura de electricidad",
+      "example": "Let’s review your electricity bill."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Billing statement",
+      "es": "Estado de cuenta",
+      "example": "I’m looking at your latest statement."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Account number",
+      "es": "Número de cuenta",
+      "example": "May I have your account number?"
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Account holder",
+      "es": "Titular de la cuenta",
+      "example": "Are you the account holder?"
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Service address",
+      "es": "Dirección del servicio",
+      "example": "Could you confirm your service address?"
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Billing period",
+      "es": "Período facturado",
+      "example": "This billing period covers about 30 days."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Due date",
+      "es": "Fecha límite de pago",
+      "example": "Your payment is due November 20."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Current balance",
+      "es": "Saldo actual",
+      "example": "Your current balance is $206."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Previous balance",
+      "es": "Saldo anterior",
+      "example": "Let’s check your previous balance."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Amount due",
+      "es": "Monto por pagar",
+      "example": "The total amount due is $206."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Energy usage / Consumption",
+      "es": "Consumo eléctrico",
+      "example": "Your energy usage increased this month."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Kilowatt-hour (kWh)",
+      "es": "Unidad de energía consumida",
+      "example": "Your usage was 1,200 kilowatt-hours."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Energy charges",
+      "es": "Cargos por consumo de energía",
+      "example": "These are your energy charges."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Delivery charges",
+      "es": "Cargos de distribución eléctrica",
+      "example": "Delivery charges appear separately."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Base charge",
+      "es": "Cargo fijo básico",
+      "example": "Your plan may include a base charge."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Rate",
+      "es": "Tarifa",
+      "example": "Let’s review the rate on your bill."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Payment",
+      "es": "Pago",
+      "example": "When did you make the payment?"
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Payment history",
+      "es": "Historial de pagos",
+      "example": "I’ll review your payment history."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Pending payment",
+      "es": "Pago pendiente de procesamiento",
+      "example": "Your payment may still be pending."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Posted payment",
+      "es": "Pago registrado",
+      "example": "The payment has posted to your account."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Outstanding balance",
+      "es": "Saldo pendiente",
+      "example": "There is an outstanding balance."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Late fee",
+      "es": "Cargo por mora",
+      "example": "Let’s check whether a late fee was applied."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Payment confirmation",
+      "es": "Confirmación de pago",
+      "example": "Do you have a confirmation number?"
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Billing discrepancy",
+      "es": "Inconsistencia de facturación",
+      "example": "Let’s review the billing discrepancy."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Higher-than-usual bill",
+      "es": "Factura más alta de lo normal",
+      "example": "I understand your concern about the higher bill."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Usage increase",
+      "es": "Aumento de consumo",
+      "example": "The statement shows a usage increase."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Billing adjustment",
+      "es": "Ajuste de facturación",
+      "example": "An adjustment requires an approved review."
+    },
+    {
+      "brand": "TXU Energy",
+      "term": "Payment arrangement",
+      "es": "Acuerdo de pago",
+      "example": "Let’s check if arrangements are available."
+    }
+  ]
+}
