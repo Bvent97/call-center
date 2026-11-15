@@ -41,6 +41,7 @@ El archivo rellena los datos del caso; no genera una conversación con IA. Para 
 ## Práctica
 
 - Cinco escenarios iniciales basados en los materiales proporcionados.
+- Logo de la empresa seleccionada, con acentos morados y naranjas para FedEx y azules y verdes para TXU Energy. Los archivos se incluyen en `public/brands/`.
 - Answer conecta la llamada simulada, Hold pausa el temporizador y End termina la práctica y guarda las notas.
 - Retry prepara el mismo caso otra vez.
 - Las notas se guardan por escenario. Al cambiar de escenario también se guardan automáticamente.

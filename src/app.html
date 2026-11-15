@@ -1,7 +1,8 @@
-<main class="simulator">
+<main class="simulator" [class.theme-fedex]="brand()==='FedEx'" [class.theme-txu]="brand()==='TXU Energy'">
  <header><h1><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-3a8 8 0 0 1 16 0v3M4 12H3v7h4v-7H4Zm16 0h1v7h-4v-7h3Zm0 7c0 3-3 3-6 3"/></svg>Call Center Training</h1><span class="practice">Practice Mode</span></header>
  <div class="tabs" aria-label="Empresa"><button [class.active]="brand()==='FedEx'" [disabled]="busy" (click)="changeBrand('FedEx')">FedEx</button><button [class.active]="brand()==='TXU Energy'" [disabled]="busy" (click)="changeBrand('TXU Energy')">TXU Energy</button></div>
  <label class="sr-only" for="scenario">Escenario</label><select id="scenario" [ngModel]="scenarioId()" (ngModelChange)="selectScenario($event)" [disabled]="busy">@for(s of scenarios();track s.id){<option [value]="s.id">{{s.title}}</option>}</select>
+ <div class="brand-banner"><div class="brand-logo"><img [src]="brand()==='FedEx'?'brands/fedex.svg':'brands/txu.svg'" [alt]="brand()" width="110" height="44"></div><span>{{brand()==='FedEx'?'Shipping & delivery':'Billing & customer service'}}</span><span class="brand-stripe" aria-hidden="true"></span></div>
  <section class="call" aria-label="Llamada de práctica">
   <div class="call-heading"><span>INBOUND CUSTOMER CALL</span><span class="status" aria-live="polite">{{status()==='incoming'?'Incoming':status()==='active'?'Connected':status()==='hold'?'On hold':'Ended'}}</span></div>
   <h2>{{scenario().name}}</h2><p class="summary">{{scenario().summary}}</p>
