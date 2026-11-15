@@ -55,7 +55,9 @@ El archivo rellena los datos del caso; no genera una conversación con IA. Para 
 - Build command: `npm run build`
 - Publish directory: `dist/training/browser`
 
-Puedes conectar el repositorio en Netlify. También puedes descomprimir `output/callroom-netlify.zip` y arrastrar la carpeta que contiene `index.html` a Netlify Drop. No se ha publicado un sitio remoto desde este proyecto.
+Conecta [Bvent97/call-center](https://github.com/Bvent97/call-center) en Netlify y selecciona la rama `main`. No requiere variables de entorno.
+
+Para un despliegue manual, ejecuta `npm run build` y arrastra la carpeta `dist/training/browser` a Netlify Drop. En la carpeta local original también está `output/callroom-netlify.zip`; los ZIP y las capturas no se guardan en Git. No se ha publicado un sitio remoto desde este proyecto.
 
 La caché de Angular está desactivada para evitar un fallo nativo observado en Windows/OneDrive. Las dependencias del CLI tienen avisos moderados de auditoría; no uses `npm audit fix --force` sin revisar los cambios de versión. La auditoría de las dependencias de producción no reportó vulnerabilidades durante la creación inicial.
 
