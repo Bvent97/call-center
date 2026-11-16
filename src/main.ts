@@ -13,6 +13,7 @@ const builtIn: PracticeScenario[] = content.scenarios.map(s => ({
 
 @Component({selector:'app-root',standalone:true,imports:[FormsModule],templateUrl:'./app.html'})
 class App implements OnDestroy {
+ appearance = signal<'dark'|'light'>(this.readAppearance());
  brand = signal<PracticeScenario['brand']>('FedEx');
  custom = signal<PracticeScenario[]>(this.readCustom());
  all = computed(()=>[...casebookScenarios,...builtIn,...this.custom()]);
@@ -30,7 +31,10 @@ class App implements OnDestroy {
  seconds = signal(0); notes=''; saved=signal(false); notice=signal('');
  importError=signal(''); draft=signal<Omit<PracticeScenario,'id'>|null>(null);
  private timer=setInterval(()=>{if(this.status()==='active')this.seconds.update(s=>s+1);},1000);
- constructor(){this.loadNotes();}
+ constructor(){this.applyAppearance();this.loadNotes();}
+ readAppearance():'dark'|'light'{try{return localStorage.getItem('practice-appearance')==='light'?'light':'dark';}catch{return 'dark';}}
+ applyAppearance(){document.documentElement.dataset['theme']=this.appearance();}
+ toggleAppearance(){this.appearance.update(value=>value==='dark'?'light':'dark');this.applyAppearance();try{localStorage.setItem('practice-appearance',this.appearance());}catch{/* The toggle still works when storage is unavailable. */}}
  ngOnDestroy(){clearInterval(this.timer);}
  get busy(){return this.status()==='active'||this.status()==='hold';}
  time(){return `${Math.floor(this.seconds()/60).toString().padStart(2,'0')}:${(this.seconds()%60).toString().padStart(2,'0')}`;}
