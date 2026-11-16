@@ -51,7 +51,7 @@ El archivo rellena los datos del caso; no genera una conversación con IA. Para 
 - Siete escenarios iniciales: cinco basados en los PDF originales y los dos registros detallados de la imagen del casebook Day 31 (Morgan Rivera y Taylor Brooks).
 - Factura de TXU visible con dirección, período, pagos, consumos actual/anterior, desglose de cargos, total y vencimiento. Registro de FedEx con remitente, destinatario, destino, movimientos, nota de entrega, contenido, comprobante y datos sin confirmar.
 - Logo de la empresa seleccionada, con acentos morados y naranjas para FedEx y azules y verdes para TXU Energy. Los archivos se incluyen en `public/brands/`.
-- Diseño adaptable: panel de hasta 1600 px, datos y notas en dos columnas desde 1100 px y una sola columna en tabletas y móviles. Texto escalable y controles de al menos 44 px.
+- Diseño adaptable: panel de hasta 1600 px, datos del registro repartidos en dos columnas desde 1000 px y notas debajo. En pantallas más pequeñas se apilan los datos. La vista de escritorio se compacta en pantallas de poca altura para reducir el desplazamiento.
 - Answer conecta la llamada simulada, Hold pausa el temporizador y End termina la práctica y guarda las notas.
 - Retry prepara el mismo caso otra vez.
 - Las notas se guardan por escenario. Al cambiar de escenario también se guardan automáticamente.

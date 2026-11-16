@@ -19,6 +19,13 @@ class App implements OnDestroy {
  scenarios = computed(()=>this.all().filter(s=>s.brand===this.brand()));
  scenarioId = signal('casebook-fedex');
  scenario = computed(()=>this.all().find(s=>s.id===this.scenarioId())!);
+ recordColumns = computed(()=>{
+  const scenario=this.scenario();
+  const fields=scenario.accountFields?.length?scenario.accountFields:[{label:'Customer',value:scenario.name},...(scenario.detail?[{label:'Case information',value:scenario.detail}]:[])];
+  const rows=[{label:this.brand()==='FedEx'?'Tracking ID':'Account number',value:scenario.reference},...fields,{label:'Case status',value:scenario.status}];
+  const middle=Math.ceil(rows.length/2);
+  return [rows.slice(0,middle),rows.slice(middle)];
+ });
  status = signal<'incoming'|'active'|'hold'|'ended'>('incoming');
  seconds = signal(0); notes=''; saved=signal(false); notice=signal('');
  importError=signal(''); draft=signal<Omit<PracticeScenario,'id'>|null>(null);
