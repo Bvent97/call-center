@@ -3,20 +3,21 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import content from './content.json';
 import { parseScenarioFile, scenarioTemplate, type PracticeScenario } from './scenario-file';
+import { casebookScenarios, existingAccountFields } from './account-records';
 
 const builtIn: PracticeScenario[] = content.scenarios.map(s => ({
  id:s.id,brand:s.brand as PracticeScenario['brand'],title:s.title,name:s.name,
  summary:s.stages[2].turns.flatMap(t=>t.messages).find(m=>m.role==='customer')?.text || s.title,
- reference:s.reference,status:s.status,detail:`${s.address}\n\n${s.record}`
+ reference:s.reference,status:s.status,detail:`${s.address}\n\n${s.record}`,accountFields:existingAccountFields[s.id] || []
 }));
 
 @Component({selector:'app-root',standalone:true,imports:[FormsModule],templateUrl:'./app.html'})
 class App implements OnDestroy {
  brand = signal<PracticeScenario['brand']>('FedEx');
  custom = signal<PracticeScenario[]>(this.readCustom());
- all = computed(()=>[...builtIn,...this.custom()]);
+ all = computed(()=>[...casebookScenarios,...builtIn,...this.custom()]);
  scenarios = computed(()=>this.all().filter(s=>s.brand===this.brand()));
- scenarioId = signal('delay');
+ scenarioId = signal('casebook-fedex');
  scenario = computed(()=>this.all().find(s=>s.id===this.scenarioId())!);
  status = signal<'incoming'|'active'|'hold'|'ended'>('incoming');
  seconds = signal(0); notes=''; saved=signal(false); notice=signal('');
@@ -30,7 +31,8 @@ class App implements OnDestroy {
   try {
    const list:unknown=JSON.parse(localStorage.getItem('practice-custom-scenarios')||'[]');
    if(!Array.isArray(list))return [];
-   return list.filter((s):s is PracticeScenario=>s && typeof s==='object' && ['id','brand','title','name','summary','reference','status','detail'].every(k=>typeof s[k]==='string') && s.id.startsWith('custom-') && ['FedEx','TXU Energy'].includes(s.brand)).slice(0,100);
+   return list.filter((s):s is PracticeScenario=>s && typeof s==='object' && ['id','brand','title','name','summary','reference','status','detail'].every(k=>typeof s[k]==='string') && s.id.startsWith('custom-') && ['FedEx','TXU Energy'].includes(s.brand))
+    .map(s=>({...s,accountFields:Array.isArray(s.accountFields)?s.accountFields.filter((f:unknown):f is {label:string;value:string}=>!!f&&typeof f==='object'&&'label' in f&&'value' in f&&typeof f.label==='string'&&typeof f.value==='string').slice(0,40):[]})).slice(0,100);
   }catch{return [];}
  }
  changeBrand(brand:PracticeScenario['brand']){if(this.busy)return;this.saveBeforeSwitch();this.brand.set(brand);this.scenarioId.set(this.scenarios()[0].id);this.reset();}
@@ -43,7 +45,9 @@ class App implements OnDestroy {
  hold(){if(this.busy)this.status.set(this.status()==='hold'?'active':'hold');}
  end(){if(!this.busy)return;this.status.set('ended');this.saveNotes();}
  downloadTemplate(){
-  const url=URL.createObjectURL(new Blob([scenarioTemplate],{type:'text/plain;charset=utf-8'}));
+  const sample=casebookScenarios.find(s=>s.brand===this.brand())!;
+  const text=this.brand()==='FedEx'?scenarioTemplate:[`Empresa: ${sample.brand}`,`Escenario: ${sample.title}`,`Cliente: ${sample.name}`,`Resumen: ${sample.summary}`,`Referencia: ${sample.reference}`,`Estado: ${sample.status}`,'Datos:',...(sample.accountFields || []).map(f=>`${f.label} | ${f.value}`),`Detalle: ${sample.detail}`,''].join('\n');
+  const url=URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));
   const a=document.createElement('a');a.href=url;a.download='plantilla-escenario.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
  }
  async importFile(event:Event){

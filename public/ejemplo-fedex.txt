@@ -1,0 +1,19 @@
+Empresa: FedEx
+Escenario: Delivered but missing · Casebook
+Cliente: Taylor Brooks
+Resumen: Tracking says delivered, but the package is not at the apartment door or reception.
+Referencia: FDX-TRAIN-782104
+Estado: Location unconfirmed; review needed
+Datos:
+Sender | Harbor Office Supply
+Recipient | Taylor Brooks
+Destination | 410 Pine Street, Apt 3C, Austin, TX
+Estimated delivery | November 6, 2026
+Nov 5, 8:20 AM | Out for delivery
+Nov 5, 3:42 PM | Delivered — status posted
+Delivery note | Left near building reception entrance
+Customer report | No package at apartment door or reception
+Contents | Replacement laptop adapter
+Value | Not verified
+Proof of delivery | Not available in training record
+Detalle: Fictional practice tracking record. The package location and value remain unconfirmed. Review the delivery note and customer report without promising an outcome.

@@ -83,6 +83,18 @@ dl > div { display: flex; justify-content: space-between; align-items: baseline;
 dt { color: #ddd; }
 dd { min-width: 0; margin: 0; text-align: right; overflow-wrap: anywhere; max-width: 65%; line-height: 1.6; }
 .account dd { color: var(--accent-text); }
+.record-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+.record-heading h3 { margin: 0; }
+.record-heading > span { flex-shrink: 0; font-size: .6em; color: #aaa; letter-spacing: .08em; }
+.record-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: .86em; line-height: 1.65; }
+.record-table th, .record-table td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid #252525; overflow-wrap: anywhere; }
+.record-table th { width: 43%; font-weight: 500; color: #c7c7c7; }
+.record-table td { color: #f1f1f1; }
+.record-table tr:nth-child(odd) { background: #0d0d0d; }
+.record-table .record-reference, .record-table .record-total, .record-table .record-status { background: var(--accent-soft); }
+.record-table .record-reference td, .record-table .record-total td, .record-table .record-status td { color: var(--accent-text); font-weight: 600; }
+.record-table caption:not(.sr-only) { text-align: left; color: var(--accent-text); font-weight: 600; margin-bottom: 12px; }
+.draft-record { margin-top: 20px; }
 .notes { display: flex; flex-direction: column; border-top: 1px solid #242424; padding-top: 24px; }
 .notes > label { display: block; font-size: 1.1em; font-weight: 600; margin-bottom: 20px; }
 textarea { background: #080808; border: 1px solid #383838; border-radius: 8px; width: 100%; min-width: 0; min-height: 170px; padding: 16px; font-size: 1em; color: #fff; resize: vertical; line-height: 1.7; flex: 1; }
@@ -113,7 +125,7 @@ footer { text-align: center; font-size: .75em; color: #888; line-height: 1.7; pa
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
 @media (min-width: 1100px) {
  .practice-workspace { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(28px, 3vw, 50px); }
- .notes { border-top: 0; border-left: 1px solid #292929; padding-top: 6px; padding-left: clamp(28px, 3vw, 50px); }
+ .notes { border-top: 0; border-left: 1px solid #292929; padding-top: 6px; padding-left: clamp(28px, 3vw, 50px); align-self: start; position: sticky; top: 24px; height: clamp(340px, 65svh, 720px); }
  textarea { min-height: 260px; }
 }
 @media (max-width: 600px) {
@@ -135,6 +147,10 @@ footer { text-align: center; font-size: .75em; color: #888; line-height: 1.7; pa
  dl > div { gap: 12px; }
  dd { max-width: 58%; }
  .account { padding-top: 20px; }
+ .record-heading { flex-wrap: wrap; gap: 8px; }
+ .record-heading > span { font-size: 9px; }
+ .record-table { font-size: 12px; }
+ .record-table th, .record-table td { padding: 10px 8px; }
  .notes { padding-top: 20px; }
  .notes > label { margin-bottom: 14px; }
  .draft { padding: 14px; }

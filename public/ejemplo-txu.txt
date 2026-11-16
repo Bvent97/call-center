@@ -1,0 +1,24 @@
+Empresa: TXU Energy
+Escenario: High electricity bill · Casebook
+Cliente: Morgan Rivera
+Resumen: My electricity bill is $206. Last month the new charges were $142.
+Referencia: TXU TRAINING-00482
+Estado: Amount due · $206.00
+Datos:
+Customer | Morgan Rivera
+Service address | 218 Cedar Lane, Dallas, TX
+Statement issued | November 3, 2026
+Service period | Oct 1–Oct 31, 2026 (31 days)
+Previous balance | $48.00
+Payment received Oct 28 | −$48.00
+Electricity usage | 1,180 kWh
+Energy charge | 1,180 kWh × $0.115 = $135.70
+Delivery charge | 1,180 kWh × $0.046 = $54.28
+Monthly base charge | $9.95
+Illustrative taxes / fees | $6.07
+New charges | $206.00
+Amount due | $206.00
+Due date | November 20, 2026
+Prior month usage | 720 kWh
+Prior month new charges | $142.00
+Detalle: Fictional practice invoice. Review the usage and each charge. The record does not confirm why usage increased or whether a payment arrangement is available.

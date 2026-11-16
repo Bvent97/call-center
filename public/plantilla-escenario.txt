@@ -4,4 +4,9 @@ Cliente: Sarah Miller
 Resumen: Customer needs to correct the delivery address
 Referencia: 7946 2108 5632
 Estado: In transit
+Datos:
+Delivery address | 410 Pine Street, Apt 3C, Austin, TX
+Last tracking update | In transit
+Requested change | Correct apartment number
+Change eligibility | Not confirmed; review needed
 Detalle: The customer noticed an incorrect apartment number. Ask for the correct address, review the available options, and explain that a change is not guaranteed.

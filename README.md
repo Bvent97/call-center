@@ -31,16 +31,25 @@ Cliente: Sarah Miller
 Resumen: Customer needs to correct the delivery address
 Referencia: 7946 2108 5632
 Estado: In transit
+Datos:
+Delivery address | 410 Pine Street, Apt 3C, Austin, TX
+Last tracking update | In transit
+Requested change | Correct apartment number
 Detalle: The customer noticed an incorrect apartment number. Review the available options without guaranteeing a change.
 ```
 
 Empresa admite `FedEx` o `TXU Energy`. Los primeros seis campos son obligatorios. `Detalle` es opcional y puede ocupar varias líneas al final del archivo. Usa un caso por archivo (máximo 64 KB; 100 escenarios importados por navegador).
 
+La sección opcional `Datos:` agrega filas visibles a la ficha: escribe `Nombre del campo | Valor`, una por línea (máximo 40). Colócala antes de `Detalle:`. Admite fechas, consumos, cargos, movimientos y cualquier otro dato del caso. Las plantillas antiguas siguen funcionando.
+
+El botón de descarga ofrece una plantilla para la empresa seleccionada. También hay ejemplos completos en `public/ejemplo-txu.txt` y `public/ejemplo-fedex.txt`, con los datos de la imagen proporcionada.
+
 El archivo rellena los datos del caso; no genera una conversación con IA. Para usar un PDF, copia la información del caso a la plantilla. No hay importación automática de PDF. El contenido del archivo se trata como texto, no como código o instrucciones para la aplicación.
 
 ## Práctica
 
-- Cinco escenarios iniciales basados en los materiales proporcionados.
+- Siete escenarios iniciales: cinco basados en los PDF originales y los dos registros detallados de la imagen del casebook Day 31 (Morgan Rivera y Taylor Brooks).
+- Factura de TXU visible con dirección, período, pagos, consumos actual/anterior, desglose de cargos, total y vencimiento. Registro de FedEx con remitente, destinatario, destino, movimientos, nota de entrega, contenido, comprobante y datos sin confirmar.
 - Logo de la empresa seleccionada, con acentos morados y naranjas para FedEx y azules y verdes para TXU Energy. Los archivos se incluyen en `public/brands/`.
 - Diseño adaptable: panel de hasta 1600 px, datos y notas en dos columnas desde 1100 px y una sola columna en tabletas y móviles. Texto escalable y controles de al menos 44 px.
 - Answer conecta la llamada simulada, Hold pausa el temporizador y End termina la práctica y guarda las notas.
