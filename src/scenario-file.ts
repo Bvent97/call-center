@@ -9,6 +9,7 @@ export interface PracticeScenario {
  status: string;
  detail: string;
  accountFields?: AccountField[];
+ source?: string;
 }
 export const scenarioTemplate = `Empresa: FedEx
 Escenario: Address correction

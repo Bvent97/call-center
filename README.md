@@ -48,7 +48,10 @@ El archivo rellena los datos del caso; no genera una conversación con IA. Para 
 
 ## Práctica
 
-- Siete escenarios iniciales: cinco basados en los PDF originales y los dos registros detallados de la imagen del casebook Day 31 (Morgan Rivera y Taylor Brooks).
+- Trece escenarios iniciales, separados en el selector por material: Day 31 (dos casos), Earlier scripts (cinco casos) y Day 36 (seis casos). Los casos importados aparecen en su propio grupo.
+- Day 36: F1 cambio de destino, F2 recogida, F3 comparación de envíos, F4 daños, T1 inicio de servicio y T2 pago posiblemente aplicado a otra cuenta. Cada caso usa un ID independiente para guardar sus notas. Brian Thompson mantiene separado su ejercicio anterior con cotizaciones del ejercicio Day 36 sin cotización confirmada.
+- Los datos ausentes se muestran como `Not provided` y las elegibilidades, tarifas, fechas y resultados sin verificar permanecen sin confirmar. Las fechas relativas del material se conservan como tales.
+- Buscador superior por Tracking ID (FedEx) o Account ID (TXU), con coincidencias parciales y tolerancia a espacios, guiones y mayúsculas. Busca entre los casos incluidos e importados de la empresa seleccionada. Si hay varias coincidencias, permite elegir el caso. No busca en sistemas reales; los casos sin ID se eligen desde el selector. Durante una llamada se desactiva para evitar cambiar de caso.
 - Factura de TXU visible con dirección, período, pagos, consumos actual/anterior, desglose de cargos, total y vencimiento. Registro de FedEx con remitente, destinatario, destino, movimientos, nota de entrega, contenido, comprobante y datos sin confirmar.
 - Logo de la empresa seleccionada, con acentos morados y naranjas para FedEx y azules y verdes para TXU Energy. Los archivos se incluyen en `public/brands/`.
 - Selector de modo claro / oscuro en la cabecera. La preferencia se guarda en el navegador y funciona con ambas empresas.

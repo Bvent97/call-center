@@ -3,7 +3,7 @@ import type { AccountField, PracticeScenario } from './scenario-file';
 // Fictional training facts transcribed from the user's Day 31 casebook image.
 export const casebookScenarios: PracticeScenario[] = [
  {
-  id:'casebook-fedex',brand:'FedEx',title:'Delivered but missing · Casebook',name:'Taylor Brooks',
+  id:'casebook-fedex',source:'Day 31',brand:'FedEx',title:'Day 31 · Delivered but missing',name:'Taylor Brooks',
   summary:'Tracking says delivered, but the package is not at the apartment door or reception.',
   reference:'FDX-TRAIN-782104',status:'Location unconfirmed; review needed',
   detail:'The customer cannot locate a replacement laptop adapter. Review the tracking events and delivery note. The record does not confirm the package location or its value.',
@@ -22,7 +22,7 @@ export const casebookScenarios: PracticeScenario[] = [
   ]
  },
  {
-  id:'casebook-txu',brand:'TXU Energy',title:'High electricity bill · Casebook',name:'Morgan Rivera',
+  id:'casebook-txu',source:'Day 31',brand:'TXU Energy',title:'Day 31 · High electricity bill',name:'Morgan Rivera',
   summary:'My electricity bill is $206. Last month the new charges were $142.',
   reference:'TXU TRAINING-00482',status:'Amount due · $206.00',
   detail:'The previous balance was paid in full. Compare the current and prior usage and review each charge. The record does not confirm why consumption increased or whether a payment arrangement is available.',
