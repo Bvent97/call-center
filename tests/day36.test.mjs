@@ -19,14 +19,17 @@ test('Day 36 adds six independent records without reusing existing note IDs',()=
  assert.equal(scenarios.filter(s=>s.brand==='TXU Energy').length,2);
  const all=[...casebookScenarios,...original,...scenarios];
  assert.equal(new Set(all.map(s=>s.id)).size,all.length);
- for(const s of scenarios){assert.equal(s.source,'Day 36');assert.ok(s.title.startsWith('Day 36 · '));assert.ok(s.accountFields.length<40);}
+ for(const s of scenarios){assert.equal(s.source,'Day 36');assert.ok(s.accountFields.length<40);}
  assert.deepEqual(casebookScenarios.map(s=>s.id),['casebook-fedex','casebook-txu']);
 });
-test('tracking identifiers match the source and unspecified identifiers remain missing',()=>{
+test('source tracking IDs are preserved and missing IDs get simple fictional practice references',()=>{
  assert.equal(get('day36-f1').reference,'7824 6130 5582');
  assert.equal(get('day36-f2').reference,'7810 4492 6601');
  assert.equal(get('day36-f4').reference,'7940 2261 5518');
- for(const id of ['day36-f3','day36-t1','day36-t2'])assert.equal(get(id).reference,'Not provided');
+ for(const [id,reference] of [['day36-f3','FDX-1001'],['day36-t1','TXU-1001'],['day36-t2','TXU-1002']]){
+  assert.equal(get(id).reference,reference);
+  assert.match(field(id,'ID note'),/Fictional practice ID/);
+ }
 });
 test('Brian Thompson Day 36 has no inherited quote or confirmed delivery commitment',()=>{
  assert.equal(field('day36-f3','Live shipping rate'),'Not available');

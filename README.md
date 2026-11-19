@@ -48,20 +48,22 @@ El archivo rellena los datos del caso; no genera una conversación con IA. Para 
 
 ## Práctica
 
-- Trece escenarios iniciales, separados en el selector por material: Day 31 (dos casos), Earlier scripts (cinco casos) y Day 36 (seis casos). Los casos importados aparecen en su propio grupo.
-- Day 36: F1 cambio de destino, F2 recogida, F3 comparación de envíos, F4 daños, T1 inicio de servicio y T2 pago posiblemente aplicado a otra cuenta. Cada caso usa un ID independiente para guardar sus notas. Brian Thompson mantiene separado su ejercicio anterior con cotizaciones del ejercicio Day 36 sin cotización confirmada.
+- Veinte escenarios iniciales y los casos importados en una sola lista por empresa, sin grupos, días ni códigos del material. Cada opción muestra el escenario y el cliente para distinguir casos parecidos. Los identificadores internos se conservan por separado.
+- Day 36: F1 cambio de destino, F2 recogida, F3 comparación de envíos, F4 daños, T1 inicio de servicio y T2 pago posiblemente aplicado a otra cuenta. Cada caso usa un ID independiente. Brian Thompson mantiene separado su ejercicio anterior con cotizaciones del ejercicio Day 36 sin cotización confirmada.
+- Day 37 agrega siete ejercicios independientes: corrección de apartamento (Olivia Bennett), recogida (Kevin Brooks), daños (Daniel Foster), comparación de opciones (Brian Thompson), factura elevada (Emily Parker), pago no reflejado (Marcus Lee) e inicio de servicio (Sofia Ramirez). Las variantes sorpresa están en la información del caso y no sustituyen los datos iniciales. Los Tracking ID repetidos conservan todos los escenarios en los resultados de búsqueda.
+- Los registros sin ID reciben referencias ficticias sencillas: `FDX-1001` y `FDX-1002`, y `TXU-1001` a `TXU-1005`. Se indica en la ficha que son IDs de práctica; los identificadores originales se conservan. No se inventan precios, balances, fechas ni aprobaciones ausentes.
 - Los datos ausentes se muestran como `Not provided` y las elegibilidades, tarifas, fechas y resultados sin verificar permanecen sin confirmar. Las fechas relativas del material se conservan como tales.
 - Buscador superior por Tracking ID (FedEx) o Account ID (TXU), con coincidencias parciales y tolerancia a espacios, guiones y mayúsculas. Busca entre los casos incluidos e importados de la empresa seleccionada. Si hay varias coincidencias, permite elegir el caso. No busca en sistemas reales; los casos sin ID se eligen desde el selector. Durante una llamada se desactiva para evitar cambiar de caso.
 - Factura de TXU visible con dirección, período, pagos, consumos actual/anterior, desglose de cargos, total y vencimiento. Registro de FedEx con remitente, destinatario, destino, movimientos, nota de entrega, contenido, comprobante y datos sin confirmar.
 - Logo de la empresa seleccionada, con acentos morados y naranjas para FedEx y azules y verdes para TXU Energy. Los archivos se incluyen en `public/brands/`.
 - Selector de modo claro / oscuro en la cabecera. La preferencia se guarda en el navegador y funciona con ambas empresas.
 - Diseño adaptable: panel de hasta 1600 px, datos del registro repartidos en dos columnas desde 1000 px y notas debajo. En pantallas más pequeñas se apilan los datos. La vista de escritorio se compacta en pantallas de poca altura para reducir el desplazamiento.
-- Answer conecta la llamada simulada, Hold pausa el temporizador y End termina la práctica y guarda las notas.
+- Answer conecta la llamada simulada, Hold pausa el temporizador y End termina la práctica.
 - Retry prepara el mismo caso otra vez.
-- Las notas se guardan por escenario. Al cambiar de escenario también se guardan automáticamente.
+- Agent Notes es un bloc temporal independiente debajo de los datos: permanece al buscar, cambiar de caso o empresa y usar Retry. No se guarda ni recupera del almacenamiento del navegador. Se vacía al recargar o cerrar la página.
 - La sección **Ver información del caso** permite consultar los datos para practicar en pareja o responder en voz alta.
 - No hay IA, grabación, micrófono, conversación automática, evaluación ni llamadas reales. Las pantallas de vocabulario, entrevista, historial y conversación guiada se retiraron de la interfaz.
-- Los casos importados y notas se guardan únicamente en ese navegador; no se sincronizan entre dispositivos. Borrar los datos del sitio los elimina.
+- Los casos importados se guardan únicamente en ese navegador; no se sincronizan entre dispositivos. Borrar los datos del sitio los elimina. Las notas son temporales y solo existen mientras la página sigue abierta.
 
 ## Netlify
 

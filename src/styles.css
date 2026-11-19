@@ -100,20 +100,20 @@ dd { min-width: 0; margin: 0; text-align: right; overflow-wrap: anywhere; max-wi
 .record-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
 .record-heading h3 { margin: 0; }
 .record-heading > span { flex-shrink: 0; font-size: .6em; color: var(--muted); letter-spacing: .08em; }
-.record-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: .86em; line-height: 1.65; }
+.record-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: .96em; line-height: 1.65; }
 .record-table th, .record-table td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--divider); overflow-wrap: anywhere; }
-.record-table th { width: 43%; font-weight: 500; color: var(--label); }
-.record-table td { color: var(--text); }
+.record-table th { width: 43%; font-weight: 700; color: var(--label); }
+.record-table td { color: var(--text); font-weight: 400; }
 .record-table tr:nth-child(odd) { background: var(--stripe); }
 .record-table .record-reference, .record-table .record-total, .record-table .record-status { background: var(--accent-soft); }
 .record-table .record-reference td, .record-table .record-total td, .record-table .record-status td { color: var(--accent-text); font-weight: 600; }
 .record-table caption:not(.sr-only) { text-align: left; color: var(--accent-text); font-weight: 600; margin-bottom: 12px; }
 .draft-record { margin-top: 20px; }
-.notes { display: flex; flex-direction: column; border-top: 1px solid var(--divider); padding-top: 24px; }
+.notes { display: flex; flex-direction: column; border-top: 1px solid var(--divider); margin-top: 18px; padding-top: 24px; }
 .notes > label { display: block; font-size: 1.1em; font-weight: 600; margin-bottom: 20px; }
+.notes > label small { display: block; font-size: 12px; font-weight: 400; color: var(--muted); margin-top: 4px; line-height: 1.5; }
 textarea { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; width: 100%; min-width: 0; min-height: 170px; padding: 16px; font-size: 1em; color: var(--text); resize: vertical; line-height: 1.7; flex: 1; }
 textarea::placeholder { color: var(--muted); }
-.save { width: 100%; background: var(--accent-soft); color: var(--accent-text); border: 1px solid var(--accent-border); margin-top: 12px; font-weight: 600; }
 .notice { font-size: .9em; color: var(--accent-text); margin: 16px 0; line-height: 1.6; }
 .extras { margin-top: 28px; border-top: 1px solid var(--divider); padding-top: 18px; color: var(--muted); font-size: .9em; }
 .extras > summary { color: var(--muted); padding: 8px 0; }
@@ -160,12 +160,11 @@ footer { text-align: center; font-size: .75em; color: var(--subtle); line-height
  .account { padding-top: 16px; }
  .record-heading { margin-bottom: 12px; }
  .record-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
- .record-table { font-size: .88em; line-height: 1.5; }
+ .record-table { font-size: .98em; line-height: 1.5; }
  .record-table th, .record-table td { padding: 7px 10px; }
- .notes { display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 10px 16px; padding-top: 14px; }
+ .notes { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px 16px; padding-top: 14px; }
  .notes > label { grid-column: 1 / -1; margin: 0; }
  .notes textarea { min-height: 90px; height: 90px; padding: 10px 12px; }
- .notes .save { align-self: end; margin: 0; }
  .extras { margin-top: 16px; padding-top: 8px; }
  footer { padding-top: 10px; }
 }
@@ -185,11 +184,10 @@ footer { text-align: center; font-size: .75em; color: var(--subtle); line-height
  .practice-workspace { margin-top: 12px; gap: 12px; }
  .account { padding-top: 12px; }
  .record-heading { margin-bottom: 8px; }
- .record-table { font-size: 12px; line-height: 1.45; }
+ .record-table { font-size: 14px; line-height: 1.45; }
  .record-table th, .record-table td { padding: 5px 9px; }
  .notes { padding-top: 10px; gap: 8px 14px; }
  .notes textarea { min-height: 64px; height: 64px; }
- .notes .save { min-height: 40px; }
  .extras { margin-top: 12px; padding-top: 4px; }
  .extras > summary { padding-block: 5px; }
  footer { padding-top: 6px; font-size: 10px; }
@@ -215,7 +213,7 @@ footer { text-align: center; font-size: .75em; color: var(--subtle); line-height
  .account { padding-top: 20px; }
  .record-heading { flex-wrap: wrap; gap: 8px; }
  .record-heading > span { font-size: 9px; }
- .record-table { font-size: 12px; }
+ .record-table { font-size: 14px; }
  .record-table th, .record-table td { padding: 10px 8px; }
  .notes { padding-top: 20px; }
  .notes > label { margin-bottom: 14px; }

@@ -5,6 +5,7 @@ import content from './content.json';
 import { parseScenarioFile, scenarioTemplate, type PracticeScenario } from './scenario-file';
 import { casebookScenarios, existingAccountFields } from './account-records';
 import { day36Scenarios } from './day36-records';
+import { day37Scenarios } from './day37-records';
 import { findByReference } from './reference-search';
 
 const builtIn: PracticeScenario[] = content.scenarios.map(s => ({
@@ -18,15 +19,14 @@ class App implements OnDestroy {
  appearance = signal<'dark'|'light'>(this.readAppearance());
  brand = signal<PracticeScenario['brand']>('FedEx');
  custom = signal<PracticeScenario[]>(this.readCustom());
- all = computed(()=>[...casebookScenarios,...builtIn,...day36Scenarios,...this.custom()]);
+ all = computed(()=>[...casebookScenarios,...builtIn,...day36Scenarios,...day37Scenarios,...this.custom()]);
  scenarios = computed(()=>this.all().filter(s=>s.brand===this.brand()));
  referenceQuery=signal('');
  searchMessage=signal('');
  searchResults=computed(()=>findByReference(this.all(),this.brand(),this.referenceQuery()));
- scenarioGroups = computed(()=>['Day 31','Earlier scripts','Day 36','Imported cases'].map(label=>({label,scenarios:this.scenarios().filter(s=>(s.source || 'Imported cases')===label)})).filter(group=>group.scenarios.length));
  scenarioId = signal('casebook-fedex');
  scenario = computed(()=>this.all().find(s=>s.id===this.scenarioId())!);
- recordTitle = computed(()=>this.brand()==='FedEx'?'Shipment & tracking record':this.scenario().id==='day36-t1'?'Service request':this.scenario().id==='day36-t2'?'Payment & account record':'Electricity invoice');
+ recordTitle = computed(()=>this.brand()==='FedEx'?'Shipment & tracking record':['day36-t1','day37-t3'].includes(this.scenario().id)?'Service request':['day36-t2','day37-t2'].includes(this.scenario().id)?'Payment & account record':'Electricity invoice');
  recordColumns = computed(()=>{
   const scenario=this.scenario();
   const fields=scenario.accountFields?.length?scenario.accountFields:[{label:'Customer',value:scenario.name},...(scenario.detail?[{label:'Case information',value:scenario.detail}]:[])];
@@ -35,10 +35,10 @@ class App implements OnDestroy {
   return [rows.slice(0,middle),rows.slice(middle)];
  });
  status = signal<'incoming'|'active'|'hold'|'ended'>('incoming');
- seconds = signal(0); notes=''; saved=signal(false); notice=signal('');
+ seconds = signal(0); notes=''; notice=signal('');
  importError=signal(''); draft=signal<Omit<PracticeScenario,'id'>|null>(null);
  private timer=setInterval(()=>{if(this.status()==='active')this.seconds.update(s=>s+1);},1000);
- constructor(){this.applyAppearance();this.loadNotes();}
+ constructor(){this.applyAppearance();}
  readAppearance():'dark'|'light'{try{return localStorage.getItem('practice-appearance')==='light'?'light':'dark';}catch{return 'dark';}}
  applyAppearance(){document.documentElement.dataset['theme']=this.appearance();}
  toggleAppearance(){this.appearance.update(value=>value==='dark'?'light':'dark');this.applyAppearance();try{localStorage.setItem('practice-appearance',this.appearance());}catch{/* The toggle still works when storage is unavailable. */}}
@@ -54,16 +54,13 @@ class App implements OnDestroy {
   }catch{return [];}
  }
  clearSearch(){this.referenceQuery.set('');this.searchMessage.set('');}
- searchReference(){if(this.busy)return;const results=this.searchResults();if(results.length===1)this.selectScenario(results[0].id);else this.searchMessage.set(results.length?'Hay varios casos. Selecciona el que quieres practicar.':'No se encontraron casos con ese ID en la empresa seleccionada.');}
- changeBrand(brand:PracticeScenario['brand']){if(this.busy)return;this.saveBeforeSwitch();this.clearSearch();this.brand.set(brand);this.scenarioId.set(this.scenarios()[0].id);this.reset();}
- selectScenario(id:string){if(this.busy)return;this.saveBeforeSwitch();this.clearSearch();this.scenarioId.set(id);this.reset();}
- reset(){this.status.set('incoming');this.seconds.set(0);this.notice.set('');this.loadNotes();}
- loadNotes(){try{this.notes=localStorage.getItem('practice-notes-'+this.scenarioId())??JSON.parse(localStorage.getItem('callroom-notes-'+this.scenarioId())||'""');}catch{this.notes='';}this.saved.set(false);}
- saveBeforeSwitch(){this.saveNotes();}
- saveNotes(){try{localStorage.setItem('practice-notes-'+this.scenarioId(),this.notes);this.saved.set(true);}catch{this.notice.set('No se pudieron guardar las notas. El almacenamiento del navegador no está disponible.');}}
+ searchReference(){if(this.busy)return;const results=this.searchResults();if(results.length===1)this.selectScenario(results[0].id);else this.searchMessage.set(results.length?'Multiple cases found. Select the one you want to practice.':'No cases found with that ID for the selected company.');}
+ changeBrand(brand:PracticeScenario['brand']){if(this.busy)return;this.clearSearch();this.brand.set(brand);this.scenarioId.set(this.scenarios()[0].id);this.reset();}
+ selectScenario(id:string){if(this.busy)return;this.clearSearch();this.scenarioId.set(id);this.reset();}
+ reset(){this.status.set('incoming');this.seconds.set(0);this.notice.set('');}
  answer(){if(this.status()==='incoming'){this.clearSearch();this.status.set('active');}}
  hold(){if(this.busy)this.status.set(this.status()==='hold'?'active':'hold');}
- end(){if(!this.busy)return;this.status.set('ended');this.saveNotes();}
+ end(){if(!this.busy)return;this.status.set('ended');}
  downloadTemplate(){
   const sample=casebookScenarios.find(s=>s.brand===this.brand())!;
   const text=this.brand()==='FedEx'?scenarioTemplate:[`Empresa: ${sample.brand}`,`Escenario: ${sample.title}`,`Cliente: ${sample.name}`,`Resumen: ${sample.summary}`,`Referencia: ${sample.reference}`,`Estado: ${sample.status}`,'Datos:',...(sample.accountFields || []).map(f=>`${f.label} | ${f.value}`),`Detalle: ${sample.detail}`,''].join('\n');
@@ -88,7 +85,7 @@ class App implements OnDestroy {
   const list=[...this.custom(),scenario];
   try{localStorage.setItem('practice-custom-scenarios',JSON.stringify(list));}
   catch{this.importError.set('No se pudo guardar. Revisa el almacenamiento del navegador.');return;}
-  this.saveBeforeSwitch();this.custom.set(list);this.brand.set(scenario.brand);this.scenarioId.set(scenario.id);this.reset();this.draft.set(null);this.notice.set('Escenario agregado. Ya puedes practicar.');
+  this.custom.set(list);this.brand.set(scenario.brand);this.scenarioId.set(scenario.id);this.reset();this.draft.set(null);this.notice.set('Escenario agregado. Ya puedes practicar.');
  }
 }
 bootstrapApplication(App).catch(console.error);
